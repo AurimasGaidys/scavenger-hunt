@@ -31,13 +31,14 @@ export const UserDS = () => {
                         isDeveloper: false,
                         name: session?.user?.name || "mane",
                         teamCreated: +moment(),
-                        logs: []
+                        logs: [],
+                        adminNotes: ""
                     };
 
                     setDoc(docRef, uuser);
                 }
 
-                if(uuser?.isNew){
+                if (uuser?.isNew) {
                     // No team selected redirect to team select
                     console.warn(" No team selected redirect to team select");
                     router.push("/teamselect");
@@ -54,6 +55,6 @@ export const UserDS = () => {
 
 
     return <div>
-       
+
     </div>
 }
