@@ -3,7 +3,7 @@ import BonusHeader from "../components/BonusHeader";
 
 function BonusList() {
     return <div>
-        <BonusHeader name="Bonus"/>
+        <BonusHeader />
         <BonusBuilder />
     </div>
 }

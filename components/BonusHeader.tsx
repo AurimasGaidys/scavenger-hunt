@@ -6,11 +6,7 @@ import { useRouter } from 'next/dist/client/router';
 import { useRecoilState } from 'recoil';
 import { modalState } from '../atoms/modalAtom';
 
-interface Props {
-    name: string
-}
-
-function BonusHeader({ name }: Props) {
+function BonusHeader() {
     const { data: session, status } = useSession();
     const router = useRouter();
     const [open, setOpen] = useRecoilState(modalState);
@@ -23,7 +19,7 @@ function BonusHeader({ name }: Props) {
 
             {/* center */}
             <div className='flex items-center'>
-                <div>{name}</div>
+                <div>Bonus</div>
             </div>
 
             <div />

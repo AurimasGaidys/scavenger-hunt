@@ -1,11 +1,12 @@
 import { collection, query, where, onSnapshot } from "firebase/firestore";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { teamState, bonusState } from "../../atoms/userData";
+import { useEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
+import { teamState } from "../../atoms/userData";
 import { getDB } from "../../helpters/getDB";
 import { DatabaseTables } from "../../models/aDatabaseTables";
 import { BonusDataModel } from "../../models/bonus";
+import { LevelDto } from "../../models/level";
 
 interface Props {
 }
@@ -13,7 +14,7 @@ interface Props {
 export const BonusBuilder = () => {
 
     const team = useRecoilValue(teamState);
-    const [bonus, setBonus] = useRecoilState(bonusState);
+    const [bonus, setBonus] = useState<BonusDataModel[] | undefined>([]);
 
     useEffect(() => {
         let unsubscribe: Function = () => { };
@@ -59,7 +60,7 @@ const BonusCell = ({ data, solved }: BCProps) => {
     return <div onClick={() => {
         router.push({
             pathname: "/bonus",
-            query: { bonus: JSON.stringify(data.id) },
+            query: { bonus: JSON.stringify(data) },
         })
     }}>
         <div className="flex items-center border-b border-gray-200 p-2">
