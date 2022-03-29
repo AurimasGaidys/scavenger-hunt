@@ -13,13 +13,13 @@ export default function Home() {
   const team = useRecoilValue(teamState);
 
   if (session == null) {
-    <div className="">
+    return (<div className="">
       <Head>
         <title>Create test App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <button className="p-3 bg-blue-500 rounded-lg text-white" onClick={() => signIn()}>Sign in</button>
-    </div>
+    </div>);
   }
 
   return (
