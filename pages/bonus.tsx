@@ -13,18 +13,18 @@ function Bonus() {
 
     if (bonus == null) {
         return <div className="p-4">
-            <BonusHeader />
+            <BonusHeader name="Bonus"/>
         </div>
     }
 
     return <div className="p-4">
-        <BonusHeader />
+        <BonusHeader name="Bonus"/>
 
         <div className="w-full">
             <img className="h-64 " src={bonus.imageUrl} />
             <BonusCodeSender bonusId={bonus.id} />
+            <h1 className="font-semibold text-2xl">{bonus.title} seconds bonus</h1>
             <h1 className="font-semibold text-2xl">{bonus.bonusAmountInSeconds} seconds bonus</h1>
-            <h1 className="font-semibold text-2xl">{bonus.id} seconds bonus</h1>
             <p>{bonus.body}</p>
         </div>
     </div>
