@@ -7,7 +7,7 @@ function signIn({ providers }: any) {
                 <button className="p-3 bg-blue-500 rounded-lg text-white" onClick={() => {
                     signInToProvider(provider.id, {callbackUrl:"/"});
                 }}>
-                    SignIn with {provider.name} ,{provider.id},
+                    SignIn with {provider.name}
                 </button>
             </div>
         ))}
