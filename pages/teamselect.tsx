@@ -1,6 +1,7 @@
 import { doc, setDoc } from "firebase/firestore";
 import moment from "moment";
 import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { getDB } from "../helpters/getDB";
 import { DatabaseTables } from "../models/aDatabaseTables";
@@ -10,6 +11,8 @@ import useUser from "../services/data-service/useUser";
 function TeamSelect() {
     const { data: session, status } = useSession();
     const { user, userId } = useUser();
+    
+    const router = useRouter();
     // const aaa = TeamDataContext.getInstance({ teamId: user?.teamId || "not set" });
 
     const createTeam = () => {
@@ -43,7 +46,7 @@ function TeamSelect() {
         <h1 className="text-lg p-4">Yay you made it</h1>
         <p className="p-4">You will be assign to team soon</p>
 
-        <button className="border p-2" onClick={() => { signOut() }}>Logout</button>
+        <button className="border p-2" onClick={() => { signOut(); router.push("/")}}>Logout</button>
     </div>
 }
 
