@@ -14,7 +14,7 @@ export const LevelCodeSender = () => {
         setLoading(true);
         setError(undefined);
         setSuccess(false);
-        
+
         if (code == "") {
             setLoading(false);
             return;
@@ -28,14 +28,13 @@ export const LevelCodeSender = () => {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ uid: session?.user?.email, code: code })
+                body: JSON.stringify({ uid: session?.user?.email, code: code.toLowerCase()})
             })
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
                     setSuccess(true);
                     setValue("");
-
                 } else {
                     setError(data.errors);
                 }

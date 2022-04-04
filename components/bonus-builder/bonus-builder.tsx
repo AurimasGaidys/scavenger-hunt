@@ -41,7 +41,7 @@ export const BonusBuilder = () => {
     return <div>
         <div>{team?.bonusSolved.join(", ")}</div>
         <div>
-            {bonus?.map(x => <BonusCell data={x} solved={false} />)}
+            {bonus?.map(x => <BonusCell data={x} solved={team?.solvedBonuses?.includes(x.id) || false} />)}
         </div>
     </div>
 

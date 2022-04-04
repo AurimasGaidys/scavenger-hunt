@@ -17,6 +17,7 @@ export const TeamDS = () => {
 
 
     useEffect(() => {
+
         let unsubscribe: Function = () => { };
         if (user?.teamId) {
             const docRef = doc(getDB(), DatabaseTables.team, user?.teamId);
@@ -29,9 +30,7 @@ export const TeamDS = () => {
             });
         }
 
-
         return () => {
-            console.log("destroy")
             unsubscribe();
         }
     }, [user])

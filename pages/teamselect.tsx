@@ -13,41 +13,43 @@ function TeamSelect() {
     const { user, userId } = useUser();
     
     const router = useRouter();
-    // const aaa = TeamDataContext.getInstance({ teamId: user?.teamId || "not set" });
-
-    const createTeam = () => {
-        if (user?.isNew) {
-            const uteam = {
-                id: session?.user?.email,
-                name: session?.user?.name,
-                joinId: "",
-                created: +moment(),
-                membersIds: [],
-                currentLevelNumber: 0,
-                currentLevelId: "",
-                correctCodes: [],
-                bonusSolved: [],
-                isNew: true
-            };
-
-            const docRef = doc(getDB(), DatabaseTables.team, session?.user?.name || "no name");
-            let aaa = setDoc(docRef, uteam);
-        }
-    }
-
-    useEffect(() => {
-        if(session?.user?.email != null){
-            createTeam();
-        }
-    }, [session?.user?.email])
-
-
+   
     return <div className="p-4">
         <h1 className="text-lg p-4">Yay you made it</h1>
-        <p className="p-4">You will be assign to team soon</p>
+        <p className="p-4">You will be assigned to team soon</p>
 
         <button className="border p-2" onClick={() => { signOut(); router.push("/")}}>Logout</button>
     </div>
 }
 
 export default TeamSelect;
+
+
+ // const aaa = TeamDataContext.getInstance({ teamId: user?.teamId || "not set" });
+
+    // const createTeam = () => {
+    //     if (user?.isNew) {
+    //         const uteam = {
+    //             id: session?.user?.email,
+    //             name: session?.user?.name,
+    //             joinId: "",
+    //             created: +moment(),
+    //             membersIds: [],
+    //             currentLevelNumber: 0,
+    //             currentLevelId: "",
+    //             correctCodes: [],
+    //             bonusSolved: [],
+    //             isNew: true
+    //         };
+
+    //         const docRef = doc(getDB(), DatabaseTables.team, session?.user?.name || "no name");
+    //         let aaa = setDoc(docRef, uteam);
+    //     }
+    // }
+
+    // useEffect(() => {
+    //     if(session?.user?.email != null){
+    //         createTeam();
+    //     }
+    // }, [session?.user?.email])
+
