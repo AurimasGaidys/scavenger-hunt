@@ -17,3 +17,8 @@ export const bonusState = atom<BonusDataModel[]>({
     key: "bonusState",
     default: []
 })
+
+export const currentBonusState = atom<BonusDataModel | undefined>({
+    key: "currentBonusState",
+    default: undefined
+})

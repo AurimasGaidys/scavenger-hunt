@@ -2,7 +2,7 @@ import { collection, query, where, onSnapshot } from "firebase/firestore";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { teamState, bonusState } from "../../atoms/userData";
+import { teamState, bonusState, currentBonusState } from "../../atoms/userData";
 import { getDB } from "../../helpters/getDB";
 import { DatabaseTables } from "../../models/aDatabaseTables";
 import { BonusDataModel } from "../../models/bonus";
@@ -55,11 +55,13 @@ interface BCProps {
 
 const BonusCell = ({ data, solved }: BCProps) => {
     const router = useRouter();
+    const [cbonus, setCurrentBonusState] = useRecoilState(currentBonusState);
+    
 
     return <div onClick={() => {
+        setCurrentBonusState(data);
         router.push({
-            pathname: "/bonus",
-            query: { bonus: JSON.stringify(data.id) },
+            pathname: "/bonus"
         })
     }}>
         <div className="flex items-center border-b border-gray-200 p-2">

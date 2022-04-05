@@ -1,15 +1,13 @@
 import { useRouter } from "next/router";
 import { useRecoilValue } from "recoil";
-import { bonusState } from "../atoms/userData";
+import { bonusState, currentBonusState } from "../atoms/userData";
 import BonusHeader from "../components/BonusHeader";
 import { BonusCodeSender } from "../components/code-sender/BonusCodeSender";
 import { BonusDataModel } from "../models/bonus";
 
 function Bonus() {
     const router = useRouter();
-    const bonusid = router.query.bonus;
-    const bonuses = useRecoilValue(bonusState);
-    const bonus = bonuses.filter(x => x.id == bonusid)[0];
+    const bonus = useRecoilValue(currentBonusState);
 
     if (bonus == null) {
         return <div className="p-4">

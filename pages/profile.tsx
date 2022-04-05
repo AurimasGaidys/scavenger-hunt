@@ -27,7 +27,7 @@ function Profile() {
                     :
                     <>
                         <h2>Team mates</h2>
-                        <div className="flex">{team?.membersIds?.map(x => <p key={"tm-" + x}>{x}</p>)} </div>
+                        <div className="flex flex-col space-y-2">{team?.membersIds?.map(x => <p key={"tm-" + x}>{x}</p>)} </div>
                         <h2>Total Bonuses solved</h2>
                         <div className="flex">{team?.solvedBonuses?.length} </div>
                         <h2>Logged in </h2>
