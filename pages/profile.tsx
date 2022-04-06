@@ -18,7 +18,7 @@ function Profile() {
     return <div >
         <BonusHeader name="Profile" />
         <div className="p-4">
-            <h1>Profile</h1>
+            <h1 className="text-xl p-4">Profile</h1>
             {
                 !session ? <>
                     <h2 className="p-2">Logged out</h2>
@@ -28,9 +28,13 @@ function Profile() {
                     <>
                         <h2>Team mates</h2>
                         <div className="flex flex-col space-y-2">{team?.membersIds?.map(x => <p key={"tm-" + x}>{x}</p>)} </div>
-                        <h2>Total Bonuses solved</h2>
+                        <h2 className="text-xl p-4">Total Bonuses solved</h2>
                         <div className="flex">{team?.solvedBonuses?.length} </div>
-                        <h2>Logged in </h2>
+                        <h2 className="text-xl p-4">Game started</h2>
+                        <div className="flex">{team?.gameStarted}</div>
+                        <h2 className="text-xl p-4">Game ended</h2>
+                        <div className="flex">{team?.gameEnded}</div>
+                        <h2 className="text-xl p-4">Logged out </h2>
                         <button className="border p-2" onClick={() => { signOut() }}>Logout</button>
                     </>
             }

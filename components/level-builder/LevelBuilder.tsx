@@ -43,7 +43,7 @@ export const LevelBuilder = (p: Props) => {
             {level?.body.map(x => <div key={x.id}><Creator data={x} /></div>)}
             <h2 className="text-2xl p-4 w-full">Sectors to close:</h2>
             {level?.sectors?.map(x => <div className="p-4" key={x.id}><SectorCell sector={x} /></div>)}
-            <h2 className="text-2xl p-4 w-full">Hints:a {p.levelId }</h2>
+            <h2 className="text-2xl p-4 w-full">Hints:</h2>
             {level?.hints?.map(x => <div key={x.id}><Hint hint={x} /></div>)}
         </div>
     </div>
