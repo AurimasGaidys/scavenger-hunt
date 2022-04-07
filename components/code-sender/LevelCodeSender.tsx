@@ -28,7 +28,7 @@ export const LevelCodeSender = () => {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ uid: session?.user?.email, code: code.toLowerCase()})
+                body: JSON.stringify({ uid: session?.user?.email, code: code.trim().toLowerCase()})
             })
             .then(response => response.json())
             .then(data => {

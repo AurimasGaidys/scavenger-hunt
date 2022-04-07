@@ -31,16 +31,16 @@ function Profile() {
                         <h2 className="text-xl p-4">Total Bonuses solved</h2>
                         <div className="flex">{team?.solvedBonuses?.length} </div>
                         <h2 className="text-xl p-4">Game started</h2>
-                        <div className="flex">{team?.gameStarted}</div>
+                        <div className="flex">{moment(team?.gameStarted)}</div>
                         <h2 className="text-xl p-4">Game ended</h2>
-                        <div className="flex">{team?.gameEnded}</div>
+                        <div className="flex">{moment(team?.gameEnded)}</div>
+                        <h2 className="text-xl p-4">Game duration</h2>
+                        <div className="flex">{moment.duration(moment(team?.gameStarted).diff(moment(team?.gameEnded))).asMinutes()}</div>
                         <h2 className="text-xl p-4">Logged out </h2>
                         <button className="border p-2" onClick={() => { signOut() }}>Logout</button>
                     </>
             }
-
         </div>
-
     </div>
 }
 

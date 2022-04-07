@@ -31,7 +31,7 @@ export const BonusCodeSender = ({ bonusId }: Props) => {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ uid: session?.user?.email, code: code.toLowerCase(), bonusId: bonusId })
+                body: JSON.stringify({ uid: session?.user?.email, code: code.trim().toLowerCase(), bonusId: bonusId })
             })
             .then(response => response.json())
             .then(data => {
