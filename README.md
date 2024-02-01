@@ -4,6 +4,4 @@ This project created with [Tailwind CSS](https://tailwindcss.com/), [Firebase](h
 
 ## Preview
 
-Preview the example live on [Here](http://stackblitz.com/):
-
 The example is not usefull because you need to connect to system. If you want to use it PM i will send you admin and cloud functions code to run the system.
